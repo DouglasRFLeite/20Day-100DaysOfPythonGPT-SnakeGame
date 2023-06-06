@@ -1,5 +1,10 @@
 from turtle import Turtle
 
+UP = 90
+RIGHT = 0
+LEFT = 180
+DOWN = 270
+
 
 class Snake:
     def __init__(self, size) -> None:
@@ -17,6 +22,8 @@ class Snake:
             new_square.backward(20)
             self.snake.append(new_square)
 
+        self.head = self.snake[0]
+
     def move_forward(self):
         next_pos = self.snake[0].pos()
         self.snake[0].forward(self.speed)
@@ -26,13 +33,17 @@ class Snake:
             next_pos = old_pos
 
     def turn_up(self):
-        self.snake[0].seth(90)
+        if self.head.heading() != DOWN:
+            self.head.seth(UP)
 
     def turn_down(self):
-        self.snake[0].seth(270)
+        if self.head.heading() != UP:
+            self.head.seth(DOWN)
 
     def turn_right(self):
-        self.snake[0].seth(0)
+        if self.head.heading() != LEFT:
+            self.head.seth(RIGHT)
 
     def turn_left(self):
-        self.snake[0].seth(180)
+        if self.head.heading() != RIGHT:
+            self.head.seth(LEFT)
