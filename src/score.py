@@ -15,10 +15,19 @@ class Score(Turtle):
         self.write_score()
 
     def write_score(self):
+        self.clear()
         self.write(f"Score: {self.points}", align="center",
                    font=('Courier', 14, 'normal'))
 
     def update_score(self):
         self.points += 1
-        self.clear()
         self.write_score()
+
+    def game_over(self):
+        self.clear()
+        self.setpos(0, 0)
+        self.write(f"Game Over!", align="center",
+                   font=('Courier', 30, 'normal'))
+        self.setpos(0, -40)
+        self.write(f"Your final score was: {self.points}", align="center",
+                   font=('Courier', 18, 'normal'))

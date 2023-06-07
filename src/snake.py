@@ -1,4 +1,4 @@
-from turtle import Turtle
+from turtle import Turtle, register_shape
 
 UP = 90
 RIGHT = 0
@@ -13,6 +13,7 @@ class Snake:
         self.snake = []
 
         self.square = Turtle(shape="square")
+
         self.square.color("white")
         self.square.penup()
         self.square.speed(0)
@@ -50,6 +51,6 @@ class Snake:
 
     def grow(self):
         new_square = self.snake[-1].clone()
-        new_square.seth(self.head.heading())
-        new_square.backward(20)
+        # new_square.seth(self.head.heading)
+        # new_square.backward(20)
         self.snake.append(new_square)
