@@ -47,3 +47,9 @@ class Snake:
     def turn_left(self):
         if self.head.heading() != RIGHT:
             self.head.seth(LEFT)
+
+    def grow(self):
+        new_square = self.snake[-1].clone()
+        new_square.seth(self.head.heading())
+        new_square.backward(20)
+        self.snake.append(new_square)
